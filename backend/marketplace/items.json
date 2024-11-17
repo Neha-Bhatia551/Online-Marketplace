@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Modern Chair",
+        "price": 75.00,
+        "discountpercentage": 10,
+        "description": "This is a modern chair made of wood and leather. It is very comfortable and stylish.",
+        "rating": 4.5,
+        "quantity": 10
+    },
+    {
+        "title": "Wooden Table",
+        "price": 150.00,
+        "discountpercentage": 15,
+        "description": "This is a wooden table made of oak. It is very sturdy and durable.",
+        "rating": 4.0,
+        "quantity": 10
+    },
+    {
+        "title": "Apple iPad",
+        "price": 499.00,
+        "discountpercentage": 5,
+        "description": "This is the latest Apple iPad with a 10.2-inch Retina display. It is very fast and powerful.",
+        "rating": 4.8,
+        "quantity": 10
+    },
+    {
+        "title": "Summer Dress",
+        "price": 45.00,
+        "discountpercentage": 20,
+        "description": "This is a beautiful summer dress made of cotton. It is very comfortable and stylish.",
+        "rating": 4.3,
+        "quantity": 10
+    },
+    {
+        "title": "Desk Lamp",
+        "price": 30.00,
+        "discountpercentage": 25,
+        "description": "This is a desk lamp with a flexible neck. It is very bright and energy-efficient.",
+        "rating": 4.6,
+        "quantity": 10
+    }
+]

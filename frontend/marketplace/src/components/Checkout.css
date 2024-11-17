@@ -1,0 +1,25 @@
+.checkout-container {
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item img {
+    margin-right: 10px;
+}
+
+.cart-item h5 {
+    margin: 0;
+}
+
+.cart-item p {
+    margin: 5px 0;
+}
+
+.header {
+    @apply mt-10 flex justify-center text-5xl font-light;
+}

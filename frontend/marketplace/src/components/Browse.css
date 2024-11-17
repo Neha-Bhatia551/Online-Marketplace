@@ -1,0 +1,3 @@
+.header {
+    @apply mt-10 flex justify-center text-5xl font-light;
+}

@@ -1,0 +1,32 @@
+.login-content {
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .login-content::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    z-index: -1;
+  }
+  
+  .login-content::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    border-radius: 10px;
+    background-color: white;
+    z-index: -1;
+  }
