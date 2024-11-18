@@ -58,6 +58,11 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8080); // Listen on port 808
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
