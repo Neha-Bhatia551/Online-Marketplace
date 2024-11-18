@@ -7,17 +7,74 @@ using marketplace;
 
 #nullable disable
 
-namespace marketplace.Migrations.Marketplace
+namespace marketplace.Migrations
 {
     [DbContext(typeof(MarketplaceContext))]
-    [Migration("20241114013720_UpdateIdToAutoIncrement")]
-    partial class UpdateIdToAutoIncrement
+    [Migration("20241118165734_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
+
+            modelBuilder.Entity("Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ItemId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("marketplace.DataModels.PrivateUsers", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Preferences")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("base64Creds")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("hash")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("users");
+                });
 
             modelBuilder.Entity("marketplace.Image", b =>
                 {
@@ -66,6 +123,15 @@ namespace marketplace.Migrations.Marketplace
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Cart", b =>
+                {
+                    b.HasOne("marketplace.Product", null)
+                        .WithMany()
+                        .HasForeignKey("ItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("marketplace.Image", b =>

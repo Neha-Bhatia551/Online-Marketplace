@@ -7,6 +7,7 @@ namespace marketplace;
 
 public class MarketplaceContext : DbContext
 {
+    public DbSet<PrivateUsers> users {get;set;}
     public DbSet<Product> Products { get; set; }
     public DbSet<Image> Images { get; set; }
     public DbSet<Cart> Carts { get; set; }

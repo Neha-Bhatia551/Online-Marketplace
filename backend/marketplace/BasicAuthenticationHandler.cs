@@ -56,7 +56,7 @@ public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSc
             return AuthenticateResult.Fail("Error decrypting login");
         }
 
-        using(var db = new UsersContext())
+        using(var db = new MarketplaceContext())
         {
             var login = db.users.FirstOrDefault(l => l.Username == username);
             if(login == null){

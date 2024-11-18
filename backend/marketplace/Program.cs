@@ -3,9 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using marketplace;
 using marketplace.DataModels;
 using System.Text.Json.Serialization;
@@ -77,7 +74,7 @@ app.MapPost("/newUser", (PublicUsers user) =>
 {
     try
     {
-        using (UsersContext db = new UsersContext())
+        using (var db = new MarketplaceContext())
         {
             var existingUser = db.users.FirstOrDefault(u => u.Username.ToLower() == user.userName.ToLower());
 
@@ -101,7 +98,7 @@ app.MapPost("/newUser", (PublicUsers user) =>
 app.MapPost("/login", (PublicUsers user) =>
 {
 
-    using (var db = new UsersContext())
+    using (var db = new MarketplaceContext())
     {
         var pu = db.users.FirstOrDefault(u => u.Username == user.userName);
         if (pu != null)
